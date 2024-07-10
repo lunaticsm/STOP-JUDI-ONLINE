@@ -43,4 +43,3 @@ Jika Anda memiliki pertanyaan atau membutuhkan bantuan, jangan ragu untuk menghu
 ---
 
 &copy; 2024 Stop Judi Online. Semua hak dilindungi.
-￼Enter
