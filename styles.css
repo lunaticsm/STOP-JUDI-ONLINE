@@ -1,45 +1,58 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
     margin: 0;
 }
 
-.container {
-    text-align: center;
-    background: #fff;
+main {
     padding: 2rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    background-color: #ffdddd;
+    padding: 2rem;
+    text-align: center;
     border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
-h1 {
-    color: #d9534f;
+.hero h2 {
+    margin: 0;
+    color: #ff4c4c;
 }
 
-button {
-    padding: 10px 20px;
-    background: #d9534f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+.content, .call-to-action {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-button:hover {
-    background: #c9302c;
+.content ul, .call-to-action ul {
+    list-style-type: disc;
+    padding-left: 2rem;
 }
 
-.message {
-    display: none;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.message h2 {
-    color: #d9534f;
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
