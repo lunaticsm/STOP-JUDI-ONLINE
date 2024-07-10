@@ -6,4 +6,3 @@ function showMessage() {
         message.style.display = 'none';
     }
 }
-￼Enter
