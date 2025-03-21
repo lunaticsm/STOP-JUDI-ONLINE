@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Judi Online</title>
+    <title>Stop Judi Online - Rehabilitasi Digital</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -18,6 +18,7 @@
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: var(--primary-color);
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
         .container {
@@ -27,27 +28,44 @@
         }
 
         .header {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #1a252f);
             color: white;
-            padding: 4rem 1rem;
+            padding: 8rem 1rem;
             text-align: center;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.1) 50%, transparent 80%);
+            animation: shine 8s infinite linear;
+            pointer-events: none;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            letter-spacing: -1px;
-            animation: shake 2s ease-in-out infinite;
+            font-size: 4rem;
+            margin: 2rem 0;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: titleEntrance 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            opacity: 0;
+            transform: translateY(50px) rotate(-5deg);
         }
 
         h2 {
             color: var(--secondary-color);
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
+            font-size: 2.2rem;
+            margin: 3rem 0 1.5rem;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2.5rem;
         }
 
         h2::before {
@@ -56,26 +74,28 @@
             left: 0;
             top: 0.35em;
             height: 1em;
-            width: 5px;
-            background: var(--accent-color);
-            border-radius: 3px;
+            width: 8px;
+            background: linear-gradient(180deg, var(--accent-color), #c0392b);
+            border-radius: 4px;
+            animation: lineGrowth 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
         }
 
         .card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 3rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(12px);
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .card.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         ul {
@@ -84,130 +104,176 @@
         }
 
         li {
-            padding: 1rem;
-            margin: 0.5rem 0;
-            background: var(--light-bg);
-            border-radius: 8px;
-            display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        li:hover {
-            transform: translateX(10px);
-        }
-
-        li::before {
-            content: '✔️';
-            color: var(--secondary-color);
-        }
-
-        blockquote {
-            font-style: italic;
-            background: var(--light-bg);
-            border-left: 4px solid var(--secondary-color);
             padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        .cta-section {
-            text-align: center;
-            background: var(--secondary-color);
-            color: white;
-            padding: 3rem 1rem;
-            margin: 3rem 0;
+            margin: 1.2rem 0;
+            background: var(--light-bg);
             border-radius: 15px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: var(--secondary-color);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            margin-top: 1rem;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
+        li:hover {
+            transform: translateX(25px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        footer {
-            background: var(--primary-color);
-            color: white;
+        li::before {
+            content: '🔥';
+            font-size: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        li:hover::before {
+            transform: rotate(360deg) scale(1.3);
+            filter: hue-rotate(45deg);
+        }
+
+        blockquote {
+            font-style: italic;
+            background: linear-gradient(45deg, var(--light-bg), #fff);
+            border-left: 5px solid var(--accent-color);
+            padding: 2.5rem;
+            margin: 4rem 0;
+            border-radius: 20px;
+            position: relative;
+            transform: rotate(-1deg);
+            animation: quoteFloat 6s ease-in-out infinite;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            color: white;
+            padding: 5rem 2rem;
+            margin: 5rem 0;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(2deg);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #fff, #f8f9fa);
+            color: var(--secondary-color);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            margin-top: 2rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.15) rotate(-3deg);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 20%, rgba(255,255,255,0.4) 50%, transparent 80%);
+            animation: shine 3s infinite;
+        }
+
+        .floating-debris {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .floating-debris span {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.1;
+            animation: floatDebris 20s linear infinite;
+            user-select: none;
         }
 
         .warning-emoji {
-            animation: float 3s ease-in-out infinite;
-            font-size: 4rem;
-            margin: 1rem;
             display: inline-block;
+            font-size: 5rem;
+            margin: 1.5rem;
+            animation: 
+                emojiDance 2.5s ease-in-out infinite,
+                emojiPulse 2s ease infinite;
+            text-shadow: 0 0 20px rgba(231, 76, 60, 0.6);
+            transform-origin: center bottom;
         }
 
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--accent-color);
-            z-index: 999;
-            transition: width 0.3s ease;
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #1a252f);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin-top: 6rem;
+            position: relative;
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+        @keyframes titleEntrance {
+            0% { opacity: 0; transform: translateY(50px) rotate(-5deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(0); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes lineGrowth {
+            0% { transform: scaleY(0); }
+            100% { transform: scaleY(1); }
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        @keyframes shine {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+            100% { transform: translateX(150%) translateY(150%) rotate(45deg); }
         }
 
-        @keyframes money-burn {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(3) rotate(45deg); }
+        @keyframes quoteFloat {
+            0%, 100% { transform: rotate(-1deg) translateY(0); }
+            50% { transform: rotate(2deg) translateY(-15px); }
+        }
+
+        @keyframes floatDebris {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        @keyframes emojiDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-25px) rotate(-15deg); }
+            50% { transform: translateY(15px) rotate(15deg); }
+            75% { transform: translateY(-10px) rotate(-5deg); }
+        }
+
+        @keyframes emojiPulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.3); filter: brightness(1.2); }
+        }
+
+        @keyframes moneyBurn {
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-150px) scale(4) rotate(360deg); opacity: 0; }
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.4rem;
-            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .card { padding: 2rem; }
+            .warning-emoji { font-size: 3.5rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -219,110 +285,155 @@
     </style>
 </head>
 <body>
-    <div class="progress-bar"></div>
+    <div class="floating-debris"></div>
 
     <header class="header">
         <div class="container">
-            <div class="warning-emoji">💸🔥🚫</div>
-            <h1>🚫 Stop Judi Online</h1>
-            <p>Mulailah Hidup Baru Tanpa Kecanduan Judi</p>
-            <div class="warning-emoji">🎲💣⛔</div>
+            <div class="warning-emoji">🔥💸🚫</div>
+            <h1>STOP JUDI ONLINE</h1>
+            <div class="warning-emoji">🎰⛔💔</div>
+            <p>Bangkitkan Hidup Baru Tanpa Kecanduan Digital</p>
         </div>
     </header>
 
     <main class="container">
         <div class="card">
-            <h2>Kenapa Harus Berhenti?</h2>
+            <h2>Dampak Merusak Judi Online</h2>
             <ul>
-                <li><strong>Kerugian Finansial:</strong> Judi online bisa menghabiskan tabungan dan menyebabkan hutang</li>
-                <li><strong>Kesehatan Mental:</strong> Menyebabkan stres, kecemasan, dan depresi</li>
-                <li><strong>Hubungan Sosial:</strong> Merusak hubungan keluarga dan pertemanan</li>
-                <li><strong>Hukum:</strong> Berpotensi melanggar undang-undang di Indonesia</li>
+                <li><strong>Kehancuran Finansial:</strong> Ratusan juta bisa lenyap dalam hitungan menit</li>
+                <li><strong>Gangguan Mental:</strong> Anxiety, depresi, hingga gangguan kepribadian</li>
+                <li><strong>Isolasi Sosial:</strong> Kehilangan kepercayaan dari keluarga dan teman</li>
+                <li><strong>Masalah Hukum:</strong> Pelanggaran UU No. 11 Tahun 2008 tentang ITE</li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>Langkah Pemulihan</h2>
+            <h2>Jalan Menuju Pemulihan</h2>
             <ul>
-                <li><strong>Blokir Akses:</strong> Gunakan aplikasi penyaring konten</li>
-                <li><strong>Dukungan Profesional:</strong> Konsultasi dengan psikolog</li>
-                <li><strong>Kelompok Support:</strong> Bergabung dengan komunitas rehabilitasi</li>
-                <li><strong>Manajemen Keuangan:</strong> Buat rencana keuangan yang ketat</li>
+                <li><strong>Teknologi Blokir:</strong> Gunakan DNS Nawala dan aplikasi parental control</li>
+                <li><strong>Terapi Kognitif:</strong> Konseling dengan psikolog spesialis kecanduan</li>
+                <li><strong>Komunitas Support:</strong> Grup rehabilitasi 12 langkah secara online/offline</li>
+                <li><strong>Manajemen Uang:</strong> Sistem keuangan terkunci dengan aplikasi budgeting</li>
             </ul>
         </div>
 
         <blockquote>
-            "Kebebasan sejati dimulai ketika kita bisa mengendalikan diri. Berhenti hari ini juga dan mulailah hidup baru!"
+            "Kemenangan terbesar adalah ketika kita bisa mengalahkan diri sendiri. Mulai detik ini, putuskan untuk berubah!"
         </blockquote>
 
         <div class="cta-section">
-            <h2>Butuh Bantuan Segera?</h2>
-            <p>Kami siap membantu 24/7 melalui layanan konsultasi gratis</p>
-            <a href="#sumber-daya" class="cta-button">Dapatkan Bantuan Sekarang</a>
+            <h2>Percayakan Pemulihan Anda Pada Ahli</h2>
+            <p>Tim spesialis kami siap membantu 24 jam melalui layanan darurat</p>
+            <a href="#sumber-daya" class="cta-button">🚨 Konsultasi Gratis Sekarang</a>
         </div>
 
         <div class="card" id="sumber-daya">
-            <h2>Sumber Daya</h2>
+            <h2>Sumber Bantuan</h2>
             <ul>
-                <li><a href="https://www.gamblingtherapy.org">Gambling Therapy 🌍</a> - Konseling online internasional</li>
-                <li><a href="https://bijakmain.com">BijakMain 🇮🇩</a> - Layanan konseling lokal 24 jam</li>
-                <li><a href="tel:+628123456789">Hotline Darurat 📞</a> - 0812-3456-789</li>
+                <li><a href="https://bijakmain.com" target="_blank">BijakMain 🇮🇩</a> - Layanan konseling khusus judi</li>
+                <li><a href="tel:+628112345678">Hotline Darurat 🚑</a> +62 811-2345-678</li>
+                <li><a href="https://kemenkes.go.id" target="_blank">Kemenkes RI 🏥</a> - Program rehabilitasi pemerintah</li>
             </ul>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 StopJudi.Online - Rehabilitasi Digital</p>
-            <p style="opacity:0.8;font-size:0.9rem">
-                Didukung oleh komunitas peduli kecanduan judi
-                <br>
-                <a href="https://github.com/lunaticsm/stop-judi-online" style="color:inherit">Kontribusi di GitHub</a>
+            <p>&copy; 2024 StopJudi.Online - Inisiatif Anti Kecanduan Digital</p>
+            <p style="opacity:0.8;margin-top:1rem">
+                <a href="https://github.com/stop-judi-online" style="color:inherit;text-decoration:underline">
+                    Kontribusi Open Source di GitHub
+                </a>
             </p>
         </div>
     </footer>
 
     <script>
-        // Scroll Animation
-        const cards = document.querySelectorAll('.card');
-        const progressBar = document.querySelector('.progress-bar');
+        function createFloatingDebris() {
+            const debris = ['💸', '💵', '💳', '🎰', '♠️', '♥️', '♦️', '♣️', '💰', '💣', '🔥'];
+            const container = document.querySelector('.floating-debris');
+            
+            for(let i = 0; i < 40; i++) {
+                const element = document.createElement('span');
+                element.textContent = debris[Math.floor(Math.random() * debris.length)];
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDelay = Math.random() * 20 + 's';
+                element.style.animationDuration = (10 + Math.random() * 15) + 's';
+                element.style.fontSize = (1 + Math.random() * 2) + 'rem';
+                element.style.opacity = 0.1 + Math.random() * 0.2;
+                container.appendChild(element);
+            }
+        }
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        cards.forEach(card => observer.observe(card));
-
-        // Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / scrollHeight) * 100;
-            progressBar.style.width = `${scrolled}%`;
-        });
-
-        // Click Effect
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
-            const particles = 20;
+            
+            const particles = 50;
+            const types = ['🔥', '💥', '💸', '✨'];
+            const colors = ['#FF0000', '#FFA500', '#FFFF00', '#FFFFFF'];
             
             for(let i = 0; i < particles; i++) {
                 const particle = document.createElement('div');
-                particle.innerHTML = '💸';
-                particle.style.position = 'absolute';
+                particle.style.position = 'fixed';
                 particle.style.left = e.clientX + 'px';
                 particle.style.top = e.clientY + 'px';
-                particle.style.animation = `money-burn ${Math.random()*1 + 0.5}s linear`;
+                particle.style.fontSize = '2rem';
+                particle.style.animation = `moneyBurn ${0.5 + Math.random() * 0.5}s ease-out forwards`;
+                particle.textContent = types[Math.floor(Math.random() * types.length)];
+                particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.textShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
                 document.body.appendChild(particle);
-                
-                setTimeout(() => particle.remove(), 1500);
+                setTimeout(() => particle.remove(), 1000);
             }
-            
-            window.location.href = this.href;
+
+            for(let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.textContent = '🎉';
+                confetti.style.position = 'fixed';
+                confetti.style.left = e.clientX + 'px';
+                confetti.style.top = e.clientY + 'px';
+                confetti.style.fontSize = '1.8rem';
+                confetti.style.animation = `
+                    confetti ${1 + Math.random() * 1}s ease-out forwards,
+                    rotate ${Math.random() * 2}s linear infinite
+                `;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 1500);
+            }
+
+            setTimeout(() => window.location.href = this.href, 800);
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingDebris();
+            
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if(entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confetti {
+                to {
+                    transform: translate(${Math.random() * 100 - 50}vw, ${window.innerHeight + 100}px);
+                    opacity: 0;
+                }
+            }
+            @keyframes rotate {
+                to { transform: rotate(${Math.random() * 720}deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
