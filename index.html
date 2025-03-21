@@ -39,6 +39,7 @@
             font-size: 2.5rem;
             margin: 0;
             letter-spacing: -1px;
+            animation: shake 2s ease-in-out infinite;
         }
 
         h2 {
@@ -67,10 +68,14 @@
             margin: 1.5rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         ul {
@@ -86,6 +91,11 @@
             display: flex;
             align-items: baseline;
             gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(10px);
         }
 
         li::before {
@@ -131,6 +141,9 @@
             margin-top: 1rem;
             font-weight: bold;
             transition: transform 0.3s ease;
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-button:hover {
@@ -143,6 +156,44 @@
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+        }
+
+        .warning-emoji {
+            animation: float 3s ease-in-out infinite;
+            font-size: 4rem;
+            margin: 1rem;
+            display: inline-block;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent-color);
+            z-index: 999;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes money-burn {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(3) rotate(45deg); }
         }
 
         @media (max-width: 768px) {
@@ -158,13 +209,24 @@
                 font-size: 1.4rem;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="progress-bar"></div>
+
     <header class="header">
         <div class="container">
+            <div class="warning-emoji">💸🔥🚫</div>
             <h1>🚫 Stop Judi Online</h1>
             <p>Mulailah Hidup Baru Tanpa Kecanduan Judi</p>
+            <div class="warning-emoji">🎲💣⛔</div>
         </div>
     </header>
 
@@ -219,5 +281,48 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Scroll Animation
+        const cards = document.querySelectorAll('.card');
+        const progressBar = document.querySelector('.progress-bar');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => observer.observe(card));
+
+        // Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            progressBar.style.width = `${scrolled}%`;
+        });
+
+        // Click Effect
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const particles = 20;
+            
+            for(let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.innerHTML = '💸';
+                particle.style.position = 'absolute';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.animation = `money-burn ${Math.random()*1 + 0.5}s linear`;
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 1500);
+            }
+            
+            window.location.href = this.href;
+        });
+    </script>
 </body>
 </html>
