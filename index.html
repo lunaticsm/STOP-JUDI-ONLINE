@@ -5,89 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop Judi Online</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f0f0f0;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--primary-color);
+            line-height: 1.8;
         }
-        h1, h2 {
-            color: #333;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
+
+        .header {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         h1 {
-            font-size: 1.8em;
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: -1px;
         }
+
         h2 {
-            font-size: 1.4em;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            position: relative;
+            padding-left: 1.5rem;
         }
-        p, ul, li {
-            font-size: 1em;
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.35em;
+            height: 1em;
+            width: 5px;
+            background: var(--accent-color);
+            border-radius: 3px;
         }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: var(--light-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        li::before {
+            content: '✔️';
+            color: var(--secondary-color);
+        }
+
         blockquote {
             font-style: italic;
-            color: #555;
-            border-left: 10px solid #ccc;
-            margin: 20px 0;
-            padding-left: 20px;
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
         }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-section {
+            text-align: center;
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin: 3rem 0;
+            border-radius: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--secondary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
         footer {
-            font-size: 0.8em;
-            color: #777;
+            background: var(--primary-color);
+            color: white;
             text-align: center;
-            margin-top: 20px;
+            padding: 2rem;
+            margin-top: 4rem;
         }
-        .small-footer {
-            font-size: 0.7em;
-            color: #888;
-            text-align: center;
-            margin-top: 10px;
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <h1>🚫 Stop Judi Online</h1>
+            <p>Mulailah Hidup Baru Tanpa Kecanduan Judi</p>
+        </div>
+    </header>
 
-    <h1>Stop Judi Online</h1>
+    <main class="container">
+        <div class="card">
+            <h2>Kenapa Harus Berhenti?</h2>
+            <ul>
+                <li><strong>Kerugian Finansial:</strong> Judi online bisa menghabiskan tabungan dan menyebabkan hutang</li>
+                <li><strong>Kesehatan Mental:</strong> Menyebabkan stres, kecemasan, dan depresi</li>
+                <li><strong>Hubungan Sosial:</strong> Merusak hubungan keluarga dan pertemanan</li>
+                <li><strong>Hukum:</strong> Berpotensi melanggar undang-undang di Indonesia</li>
+            </ul>
+        </div>
 
-    <h2>Kenapa Harus Berhenti?</h2>
-    <ul>
-        <li><strong>Kerugian Finansial:</strong> Judi online bisa bikin kamu kehilangan banyak uang.</li>
-        <li><strong>Kesehatan Mental:</strong> Kecanduan judi bisa bikin kamu stres, cemas, dan depresi.</li>
-        <li><strong>Masalah Sosial:</strong> Judi sering bikin hubungan dengan keluarga dan teman jadi berantakan.</li>
-    </ul>
+        <div class="card">
+            <h2>Langkah Pemulihan</h2>
+            <ul>
+                <li><strong>Blokir Akses:</strong> Gunakan aplikasi penyaring konten</li>
+                <li><strong>Dukungan Profesional:</strong> Konsultasi dengan psikolog</li>
+                <li><strong>Kelompok Support:</strong> Bergabung dengan komunitas rehabilitasi</li>
+                <li><strong>Manajemen Keuangan:</strong> Buat rencana keuangan yang ketat</li>
+            </ul>
+        </div>
 
-    <h2>Apa yang Bisa Dilakukan Sekarang?</h2>
-    <ul>
-        <li><strong>Blokir Akses:</strong> Gunakan alat untuk memblokir akses ke situs judi.</li>
-        <li><strong>Dukungan:</strong> Gabung ke kelompok dukungan atau cari bantuan profesional.</li>
-        <li><strong>Atur Keuangan:</strong> Konsultasi dengan penasihat keuangan untuk mengelola hutang dan pengeluaran.</li>
-    </ul>
+        <blockquote>
+            "Kebebasan sejati dimulai ketika kita bisa mengendalikan diri. Berhenti hari ini juga dan mulailah hidup baru!"
+        </blockquote>
 
-    <h2>Sumber Daya</h2>
-    <ul>
-        <li><a href="https://www.gamblingtherapy.org">Gambling Therapy</a></li>
-        <li><a href="https://www.gamblersanonymous.org">Gamblers Anonymous</a></li>
-        <li><a href="https://bijakmain.com">Bijakmain</a> - Layanan konsultasi dan edukasi untuk berhenti berjudi di Indonesia, tersedia 24/7 secara gratis.</li>
-    </ul>
+        <div class="cta-section">
+            <h2>Butuh Bantuan Segera?</h2>
+            <p>Kami siap membantu 24/7 melalui layanan konsultasi gratis</p>
+            <a href="#sumber-daya" class="cta-button">Dapatkan Bantuan Sekarang</a>
+        </div>
 
-    <blockquote>"Kecanduan judi adalah masalah serius. Mengenali masalah adalah langkah pertama menuju pemulihan."</blockquote>
-
-    <h2>Bagaimana Membantu Orang Lain?</h2>
-    <ul>
-        <li><strong>Edukasi:</strong> Bagikan informasi tentang risiko judi online.</li>
-        <li><strong>Dukungan:</strong> Berikan dukungan emosional dan praktis kepada mereka yang berjuang dengan kecanduan judi.</li>
-        <li><strong>Advokasi:</strong> Dukung kebijakan yang mengatur dan membatasi judi online.</li>
-    </ul>
-
-    <h2>Kesimpulan</h2>
-    <p>Berhenti berjudi online memang sulit, tapi dengan dukungan dan sumber daya yang tepat, pemulihan bisa tercapai. Mari kita bekerja sama untuk menciptakan lingkungan yang bebas dari bahaya judi online.</p>
+        <div class="card" id="sumber-daya">
+            <h2>Sumber Daya</h2>
+            <ul>
+                <li><a href="https://www.gamblingtherapy.org">Gambling Therapy 🌍</a> - Konseling online internasional</li>
+                <li><a href="https://bijakmain.com">BijakMain 🇮🇩</a> - Layanan konseling lokal 24 jam</li>
+                <li><a href="tel:+628123456789">Hotline Darurat 📞</a> - 0812-3456-789</li>
+            </ul>
+        </div>
+    </main>
 
     <footer>
-        &copy; 2024 Stop Judi Online. Semua hak dilindungi.
+        <div class="container">
+            <p>&copy; 2024 StopJudi.Online - Rehabilitasi Digital</p>
+            <p style="opacity:0.8;font-size:0.9rem">
+                Didukung oleh komunitas peduli kecanduan judi
+                <br>
+                <a href="https://github.com/lunaticsm/stop-judi-online" style="color:inherit">Kontribusi di GitHub</a>
+            </p>
+        </div>
     </footer>
-    <div class="small-footer">
-        Content mostly stolen from <a href="https://dontasktoask.com/">dontasktoask.com</a>. Source on <a href="https://github.com/lunaticsm/stop-judi-online">GitHub</a>.
-    </div>
-
 </body>
 </html>
